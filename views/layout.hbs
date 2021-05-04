@@ -16,7 +16,7 @@
 				dataLayer.push(arguments);
 			}
 			gtag('js', new Date());
-			gtag('config', 'UA-156358716-1');
+			gtag('config', 'UA-156358716-1'); // TODO change this
 		</script>
 
 		{{#if adsenseEnabled}}
@@ -56,7 +56,6 @@
 	<link id="bootstrapCss" as="style" rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.0/css/bootstrap.min.css" integrity="sha384-9aIt2nRpC12Uk9gS9baDl411NQApFmC26EwAOH8WgZl5MYYxFfc+NcPb1dKGj7Sk" crossorigin="anonymous">
 
 	<link id="stylesCss" as="style" rel='stylesheet' href='/stylesheets/style.css' />
-	<link id="hljsCss" as="style" rel='preload' href='/stylesheets/hljs.css' />
 
 </head>
 
@@ -66,7 +65,7 @@
 <header>
 
 	<nav class="navbar navbar-expand-lg navbar-dark bg-primary">
-		<a class="navbar-brand" href="/"><strong>javaniceday.com</strong></a>
+		<a class="navbar-brand" href="/"><strong>safety-mom.com</strong></a>
 		<button class="navbar-toggler" type="button" data-toggle="collapse"
 		        data-target="#navbarSupportedContent" onclick="toggleNavbar()"
 		        aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
@@ -194,7 +193,7 @@
 <footer class="py-5 bg-dark mt-3">
 	<div class="container">
 		<p class="m-0 text-center text-white">Copyright &copy;
-			<a href="/" class="text-decoration-none "><span class="text-white">www.javaniceday.com</span></a></p>
+			<a href="/" class="text-decoration-none "><span class="text-white">www.safety-mom.com</span></a></p>
 	</div>
 	<div class="container">
 		<div class="text-center mt-3 text-muted">
@@ -216,15 +215,12 @@
 <!-- lazy loading images -->
 <script type="text/javascript" src="https://cdn.jsdelivr.net/npm/lozad/dist/lozad.min.js"></script>
 
-<script src="//cdnjs.cloudflare.com/ajax/libs/highlight.js/10.0.3/highlight.min.js"></script>
-<script>hljs.initHighlightingOnLoad();</script>
 
 <script type="text/javascript">
 	document.addEventListener("DOMContentLoaded", function(event) {
 
 		//load css styles after the page loaded
 		// document.getElementById('bootstrapCss').rel='stylesheet'
-		document.getElementById('hljsCss').rel='stylesheet'
 		// document.getElementById('stylesCss').rel='stylesheet'
 
 		// to load images in a lazy way
