@@ -1,8 +1,15 @@
 body {
-  padding: 50px;
-  font: 14px "Lucida Grande", Helvetica, Arial, sans-serif;
+  padding: 0px;
+  font-family: charter, Georgia, Cambria, "Times New Roman", Times, serif;
+}
+a:hover{
+  text-decoration: none !important;
 }
 
-a {
-  color: #00B7FF;
+a{
+  color: #000000;
+}
+
+.my-nav-custom{
+  height: 100px;
 }

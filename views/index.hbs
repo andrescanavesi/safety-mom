@@ -3,18 +3,28 @@
 <h1 class="my-4">{{pageHeader}}</h1> <!-- used to display categories such as tags -->
 {{#each posts}}
 	<!-- Blog Post -->
-	<div class="card mb-4">
-		<img class="lozad card-img-top"
+	<div class="card border-0  mb-4">
+		<div class="text-muted">
+			Publicado hace 3 dias
+		</div>
+		<h1>
+			<a href="/post/{{this.title_seo}}">{{this.title}}</a>
+		</h1>
+		<h3>
+			<small class="text-muted lead">Los niños pueden hacer uso de estas sillas como edad recomendada entre 1 y 12 años de edad</small>
+		</h3>
+		<img class="lozad card-img-top mt-3"
 		     src="{{this.default_loading_image}}"
 		     data-src="{{this.featured_image_url}}" alt="image post">
+		<p class="text-center"><small class="text-muted">Image by Unsplash</small> </p>
 		<div class="card-body">
-			<h2 class="card-title">{{this.title}}</h2>
-			<p class="card-text">{{this.summary}}</p>
-			<a href="/post/{{this.title_seo}}" class="btn btn-primary">Read More →</a>
+
+			<p class="lead">{{this.content}}</p>
+			<a href="/post/{{this.title_seo}}" >
+				Leer más sobre esto - 3 min de lectura
+			</a>
 		</div>
-		<div class="card-footer text-muted">
-			Posted on {{this.created_at_friendly}}
-		</div>
+
 	</div>
 {{/each}}
 

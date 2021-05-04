@@ -6,16 +6,16 @@ const moment = require('moment');
 module.exports.getResponseJson = function (req) {
   // default attributes for the response response.
   const responseJson = {};
-  responseJson.title = 'javaniceday.com – Software development blog.';
+  responseJson.title = 'safety-mom.com – Blog sobre....'; // TODO
   responseJson.today = moment().format('YYYY-MM-DD');
   responseJson.isProduction = process.env.NODE_ENV === 'production' || false;
-  responseJson.adsenseEnabled = process.env.ADSENSE_ENABLED === true || process.env.JND_ADSENSE_ENABLED === 'true';
+  responseJson.adsenseEnabled = process.env.ADSENSE_ENABLED === true || process.env.ADSENSE_ENABLED === 'true';
   responseJson.isHomePage = false;
   responseJson.isPostPage = false;
   responseJson.createdAt = moment().format('YYYY-MM-DD');
   responseJson.updatedAt = moment().format('YYYY-MM-DD');
   responseJson.linkToThisPage = process.env.BASE_URL || 'http://localhost:3000';
-  responseJson.description = 'javaniceday.com – Software development blog.';
+  responseJson.description = 'safety-mom.com – Blog sobre.....'; // TODO
   responseJson.metaImage = process.env.DEFAULT_IMAGE_URL;
   responseJson.keywords = 'software, development';
   responseJson.searchText = '';

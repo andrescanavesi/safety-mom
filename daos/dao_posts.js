@@ -18,8 +18,8 @@ const searchIndex = new FlexSearch(preset);
  * @param {*} row
  */
 function convertPost(row) {
-  const baseImagesUrl = process.env.BASE_IMAGE_URL;
-  const baseThumbImagesUrl = process.env.BASE_THUMB_IMAGE_URL;
+  const baseImagesUrl = process.env.IMAGES_BASE_URL;
+  const baseThumbImagesUrl = process.env.IMAGES_THUMB_BASE_URL;
   const result = {
     id: row.id,
     title: row.title,
