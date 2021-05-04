@@ -1,4 +1,4 @@
- 
+
       <script async="async" defer="true" charset="UTF-8" type="application/ld+json">
           {
           "@context":"http://schema.org",
@@ -24,7 +24,7 @@
            }
         }
       </script>
-  
+
 
 
 <div class="container">
@@ -32,40 +32,55 @@
      <!-- Title -->
  <h1>{{post.title}}</h1>
 
- <hr>
 
- <!-- Date/Time -->
- <p>Posted on {{post.created_at_friendly}}</p>
+	<!-- post metadata -->
+	<div class="mt-1">
+//TBD
+	</div>
 
- <hr>
+	<h3>
+		<small class="text-muted lead">Los niños pueden hacer uso de estas sillas como edad recomendada entre 1 y 12 años de edad</small>
+	</h3>
+
+
 
  <!-- Preview Image -->
- <img class="lozad img-fluid rounded" 
+ <img class="lozad img-fluid rounded"
  src="{{post.default_loading_image}}"
  data-src="{{post.featured_image_url}}" alt="featured image">
 
- <hr>
+	<p class="text-center"><small class="text-muted">Image by Unsplash</small> </p>
+
+
 
  <!-- Post Content -->
  {{{post.content}}}
- 
- <hr>
+
+
+	<div class="mt-5">
 {{#each post.tags_array}}
   <a href="/tag/{{this}}" class="btn btn-secondary">{{this}}</a>
 {{/each}}
- <hr/>
+	</div>
+
+	<!-- post metadata-->
+	<div class="mt-5">
+		// metadata
+	</div>
 
 {{#if isAuthenticated}}
+<div class="mt-3">
   <a href="{{post.url_edit}}">Edit post</a>
+</div>
 {{/if}}
 
 {{#if showRelatedPosts}}
-  <div id="related">
+  <div id="related" class="mt-5">
     <h2>More posts</h2>
     <div class="card-columns">
       {{#each relatedPosts}}
         <div class="card">
-          <img class="lozad card-img-top" 
+          <img class="lozad card-img-top"
           src="{{this.default_thumb_loading_image}}"
           data-src="{{this.thumb_image_url}}" alt="image post">
           <div class="card-body">
@@ -82,5 +97,5 @@
 
   </div> <!-- END related posts -->
 {{/if}}
-    
+
 </div> <!-- END container -->
