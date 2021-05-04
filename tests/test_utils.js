@@ -1,10 +1,8 @@
 require('dotenv-safe').config();
 
 const chai = require('chai');
-const randomstring = require('randomstring');
 const log4js = require('log4js');
 const utils = require('../utils/utils');
-
 
 const logger = log4js.getLogger('tests/test_utils.js');
 
