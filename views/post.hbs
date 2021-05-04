@@ -1,0 +1,86 @@
+ 
+      <script async="async" defer="true" charset="UTF-8" type="application/ld+json">
+          {
+          "@context":"http://schema.org",
+          "@type": "BlogPosting",
+          "image": "{{post.featured_image_url}}",
+          "url": "{{post.linkToThisPage}}",
+          "headline": "{{post.title}}",
+          "dateCreated": "{{post.created_at_friendly_2}}",
+          "datePublished": "{{post.created_at_friendly_2}}",
+          "dateModified": "{{post.updated_at_friendly_2}}",
+          "inLanguage": "en-US",
+          "author": {
+            "@type": "Person",
+            "name": "Andres Canavesi",
+            "url": "https://www.javaniceday.com"
+          },
+          "mainEntityOfPage": "True",
+          "keywords": "{{post.tags}}",
+          "articleBody": "{{post.summary}}",
+          "publisher": {
+            "@type": "Organization",
+            "name": "Andres Canavesi"
+           }
+        }
+      </script>
+  
+
+
+<div class="container">
+
+     <!-- Title -->
+ <h1>{{post.title}}</h1>
+
+ <hr>
+
+ <!-- Date/Time -->
+ <p>Posted on {{post.created_at_friendly}}</p>
+
+ <hr>
+
+ <!-- Preview Image -->
+ <img class="lozad img-fluid rounded" 
+ src="{{post.default_loading_image}}"
+ data-src="{{post.featured_image_url}}" alt="featured image">
+
+ <hr>
+
+ <!-- Post Content -->
+ {{{post.content}}}
+ 
+ <hr>
+{{#each post.tags_array}}
+  <a href="/tag/{{this}}" class="btn btn-secondary">{{this}}</a>
+{{/each}}
+ <hr/>
+
+{{#if isAuthenticated}}
+  <a href="{{post.url_edit}}">Edit post</a>
+{{/if}}
+
+{{#if showRelatedPosts}}
+  <div id="related">
+    <h2>More posts</h2>
+    <div class="card-columns">
+      {{#each relatedPosts}}
+        <div class="card">
+          <img class="lozad card-img-top" 
+          src="{{this.default_thumb_loading_image}}"
+          data-src="{{this.thumb_image_url}}" alt="image post">
+          <div class="card-body">
+            <a href="/post/{{this.title_seo}}">
+              {{this.title}}
+            </a>
+            <p class="card-text">
+              <small class="text-muted">Posted on {{this.created_at_friendly}}</small>
+            </p>
+          </div>
+        </div>
+      {{/each}}
+    </div>
+
+  </div> <!-- END related posts -->
+{{/if}}
+    
+</div> <!-- END container -->
