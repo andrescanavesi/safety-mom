@@ -36,13 +36,12 @@
 	<!-- post metadata -->
 	<div class="d-flex mt-1">
 		<div class="p-2">
-			<i data-feather="heart"></i>
+			<a href="#"><i data-feather="heart"></i></a>
 		</div>
-		<div class="p-2">Comments</div>
 		<div class="ml-auto p-2">
-			<i data-feather="twitter"></i>
-			<i data-feather="facebook"></i>
-			<i data-feather="linkedin"></i>
+			<a href="#"><i data-feather="twitter"></i></a>
+			<a href="#"><i data-feather="facebook"></i></a>
+			<a href="#"><i data-feather="linkedin"></i></a>
 		</div>
 	</div>
 
@@ -62,18 +61,27 @@
 
 
  <!-- Post Content -->
+	<p class="lead">
  {{{post.content}}}
+	</p>
 
 
 	<div class="mt-5">
 {{#each post.tags_array}}
-  <a href="/tag/{{this}}" class="btn btn-secondary">{{this}}</a>
+  <a href="/tag/{{this}}" class="btn btn-outline-dark">{{this}}</a>
 {{/each}}
 	</div>
 
 	<!-- post metadata-->
-	<div class="mt-5">
-		// metadata
+	<div class="d-flex mt-5">
+		<div class="p-2">
+			<a href="#"><i data-feather="heart"></i></a>
+		</div>
+		<div class="ml-auto p-2">
+			<a href="#"><i data-feather="twitter"></i></a>
+			<a href="#"><i data-feather="facebook"></i></a>
+			<a href="#"><i data-feather="linkedin"></i></a>
+		</div>
 	</div>
 
 {{#if isAuthenticated}}
@@ -82,28 +90,6 @@
 </div>
 {{/if}}
 
-{{#if showRelatedPosts}}
-  <div id="related" class="mt-5">
-    <h2>More posts</h2>
-    <div class="card-columns">
-      {{#each relatedPosts}}
-        <div class="card">
-          <img class="lozad card-img-top"
-          src="{{this.default_thumb_loading_image}}"
-          data-src="{{this.thumb_image_url}}" alt="image post">
-          <div class="card-body">
-            <a href="/post/{{this.title_seo}}">
-              {{this.title}}
-            </a>
-            <p class="card-text">
-              <small class="text-muted">Posted on {{this.created_at_friendly}}</small>
-            </p>
-          </div>
-        </div>
-      {{/each}}
-    </div>
 
-  </div> <!-- END related posts -->
-{{/if}}
 
 </div> <!-- END container -->

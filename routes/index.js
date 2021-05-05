@@ -19,6 +19,7 @@ router.get('/', async (req, res, next) => {
       res.redirect(page);
     } else {
       const responseJson = responseHelper.getResponseJson(req);
+      responseJson.showRelatedPosts = false;
       const posts = await daoPosts.findAll(true, true);
 
       responseJson.posts = posts;

@@ -103,12 +103,12 @@
 	</div>
 	<div class="row">
 
-		<div class="col-md-1">
+		<div class="col-md-2">
 
 		</div>
 
 		<!-- Post Content Column -->
-		<div class="col-lg-10">
+		<div class="col-lg-8">
 
 			{{{body}}}
 
@@ -116,6 +116,33 @@
 
 	</div>
 	<!-- /.row -->
+
+	<div class="row px-2 my-3">
+		{{#if showRelatedPosts}}
+			<div id="related" class="mt-5">
+				<h2 class="border-bottom mb-4">Leer más</h2>
+				<div class="card-columns">
+					{{#each relatedPosts}}
+						<div class="card border-0">
+							<img class="lozad card-img-top"
+							     src="{{this.default_thumb_loading_image}}"
+							     data-src="{{this.thumb_image_url}}" alt="image post">
+							<div class="card-body">
+								<a href="/post/{{this.title_seo}}">
+									{{this.title}}
+								</a>
+								<p class="card-text">
+									<small class="text-muted">Hace 3 dias</small>
+								</p>
+							</div>
+						</div>
+					{{/each}}
+				</div>
+
+			</div>
+		{{/if}}
+		<!-- END related posts -->
+	</div>
 
 </div>
 <!-- /.container -->
