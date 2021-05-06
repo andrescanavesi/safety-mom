@@ -9,13 +9,19 @@ Run locally and then the env vars will be set automatically
 heroku local
 http://localhost:5000/
 ```
+
+Deploy from local
 ```bash
-
-
 heroku git:remote -a safety-mom-staging
 git remote rename heroku heroku-staging
 git push heroku-staging main
 ```
 
+Set env vars
+```bash
+heroku config:set -a safety-mom-staging NODE_ENV=staging 
+```
 
-`heroku config:set -a safety-mom-staging NODE_ENV=staging`
+Set all env vars from .env file (WARNING: it will override all!)
+`heroku config:set $(cat .env | sed '/^$/d; /#[[:print:]]*$/d')`
+
