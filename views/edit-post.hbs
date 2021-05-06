@@ -22,15 +22,15 @@ Updated at: {{post.updated_at_friendly_3}}
 						console.log('file name '+fileName);
 						const currentContent = $('#content').val();
 						// TODO get base image from configs
-						const url = `<img class="lozad img-fluid rounded" data-src="https://res.cloudinary.com/hqkn1dfka/image/upload/c_thumb,f_auto,q_60,w_900,h_600,q_auto:low/v1620094956/${fileName}" />`;
+						const url = `<img class="lozad img-fluid rounded" data-src="{{imagesBaseUrl}}${fileName}" />`;
 						$('#content').val(currentContent+'\n'+url);
 					}
 				}
 		)
 
 		const myWidget = cloudinary.createUploadWidget({
-					cloudName: 'hqkn1dfka',
-					uploadPreset: 'dwlwnihh'}, (error, result) => {
+					cloudName: "{{cloudinaryCloudName}}",
+					uploadPreset: "{{cloudinaryUnsignedUploadPreset}}"}, (error, result) => {
 					if (!error && result && result.event === "success") {
 						console.log('Done! Here is the image info: ', result.info);
 						const fileName = result.info.public_id+'.jpg';
