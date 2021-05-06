@@ -1,6 +1,6 @@
 const moment = require('moment');
 
-moment.locale('en');
+moment.locale('es');
 
 const FlexSearch = require('flexsearch');
 const log4js = require('log4js');
@@ -24,14 +24,17 @@ function convertPost(row) {
     id: row.id,
     title: row.title,
     title_seo: row.title_seo,
+    sub_title: 'Los niños pueden hacer uso de estas sillas como edad recomendada entre 1 y 12 años de edad.',
     created_at: row.created_at,
     created_at_friendly: moment(row.created_at).format('MMM DD, YYYY'),
     created_at_friendly_2: moment(row.created_at).format('YYYY-MM-DD'),
     created_at_friendly_3: moment(row.created_at).format('YYYY-MM-DD HH:mm:ss'),
+    created_at_ago: moment(row.created_at).fromNow(),
     updated_at: row.updated_at,
     updated_at_friendly: moment(row.updated_at).format('MMM DD, YYYY'),
     updated_at_friendly_2: moment(row.updated_at).format('YYYY-MM-DD'),
     updated_at_friendly_3: moment(row.updated_at).format('YYYY-MM-DD HH:mm:ss'),
+    updated_at_ago: moment(row.updated_at).fromNow(),
     content: row.content,
     summary: row.summary,
     active: row.active,
@@ -45,6 +48,19 @@ function convertPost(row) {
     default_loading_image: process.env.DEFAULT_LOADING_IMAGE,
     default_thumb_loading_image: process.env.DEFAULT_THUMB_LOADING_IMAGE,
   };
+
+  // social sharing buttons
+  result.pinterestSharingUrl = `https://www.pinterest.com/pin/create/button/?url=${
+    result.url
+  }&media=${
+    result.thumb_image_url
+  }&description=${
+    result.description}`;
+  result.whatsappSharingUrl = `whatsapp://send?text=${result.url}`;
+  result.facebookSharingUrl = `https://www.facebook.com/sharer/sharer.php?u=${encodeURI(result.url)}`;
+  const twitterUrl = encodeURI(`${result.url}&text=${result.title}`);
+  result.twitterSharingUrl = `https://twitter.com/intent/tweet?url=${twitterUrl}`;
+  result.linkedinSharingUrl = `https://www.linkedin.com/sharing/share-offsite/?url=${result.url}`;
 
   return result;
 }
@@ -157,7 +173,7 @@ module.exports.findAllTags = async function (witchCache = true) {
       name: tag,
       url: `${process.env.BASE_URL}tag/${tag}`,
       updated_at_friendly: today,
-      featured_image_url: `${process.env.JND_DEFAULT_IMAGE_URL}`,
+      featured_image_url: `${process.env.DEFAULT_IMAGE_URL}`,
     };
     objects.push(obj);
   }

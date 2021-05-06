@@ -53,6 +53,8 @@ module.exports.getResponseJson = function (req) {
   responseJson.cloudinaryCloudName = process.env.CLOUDINARY_CLOUD_NAME;
   responseJson.cloudinaryUnsignedUploadPreset = process.env.CLOUDINARY_UNSIGNED_UPLOADS_PRESET;
   responseJson.imagesBaseUrl = process.env.IMAGES_BASE_URL;
+  responseJson.favIcon = responseJson.imagesBaseUrl + process.env.FAV_ICON_URL;
+  responseJson.googleAnalyticsId = process.env.GOOGLE_ANALYTICS_ID;
 
   return responseJson;
 };

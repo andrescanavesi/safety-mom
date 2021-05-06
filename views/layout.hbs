@@ -16,7 +16,7 @@
 			function gtag(){dataLayer.push(arguments);}
 			gtag('js', new Date());
 
-			gtag('config', 'G-LZPNWKQF6F');
+			gtag('config', "{{googleAnalyticsId}}");
 		</script>
 
 		{{#if adsenseEnabled}}
@@ -32,11 +32,10 @@
 	<meta charset="utf-8">
 	<meta http-equiv="Cache-control" content="public, max-age=50000">
 	<meta name="theme-color" content="#009900">
-	<!-- TODO -->
-	<meta name="msapplication-square310x310logo" content="https://res.cloudinary.com/dniiru5xy/image/upload/v1590952431/javaniceday.com/favicon.jpg">
+	<meta name="msapplication-square310x310logo" content="{{favIcon}}">
 	<meta name="viewport" content="width=device-width, initial-scale=1">
 	<meta name="author" content="Andres Canavesi">
-	<meta name="language" content="en">
+	<meta name="language" content="es">
 	<meta name="keywords" content="safety,babies">
 	<meta name="robots" content="Index, Follow">
 	<meta property="og:locale" content="es_ES">
@@ -75,14 +74,14 @@
 				<li class="nav-item active">
 					<a class="nav-link" href="/">Inicio <span class="sr-only">(current)</span></a>
 				</li>
-				<li class="nav-item">
+				<li class="nav-item d-none">
 					<a class="nav-link" href="/all/posts">Posts</a>
 				</li>
-				<li class="nav-item">
+				<li class="nav-item d-none">
 					<a class="nav-link" href="/all/tags">Tags</a>
 				</li>
 				<li class="nav-item">
-					<a class="nav-link" href="/post/about">About</a>
+					<a class="nav-link" href="/post/about">Sobre el sitio</a>
 				</li>
 			</ul>
 		</div>
@@ -130,7 +129,7 @@
 									{{this.title}}
 								</a>
 								<p class="card-text">
-									<small class="text-muted">Hace 3 dias</small>
+									<small class="text-muted">{{this.created_at_ago}}</small>
 								</p>
 							</div>
 						</div>

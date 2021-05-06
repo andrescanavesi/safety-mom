@@ -79,7 +79,7 @@ router.get('/post/:titleSeo', async (req, res) => {
     logger.error(e);
 
     // to avoid SEO penalization. In the future throw  404 (see Boom package in npm)
-    res.redirect(process.env.JND_BASE_URL);
+    res.redirect(process.env.BASE_URL);
   }
 });
 
@@ -89,7 +89,7 @@ router.get('/tag/:tag', async (req, res, next) => {
     const data = await daoPosts.findByTag(req.params.tag, true);
     const responseJson = responseHelper.getResponseJson(req);
     responseJson.posts = data;
-    responseJson.title = `${req.params.tag} - javaniceday.com`;
+    responseJson.title = `${req.params.tag} - safety-mom.com.com`;
     responseJson.description = responseJson.title;
     responseJson.pageHeader = req.params.tag;
     res.render('index', responseJson);
@@ -102,28 +102,6 @@ router.get('/:year/:month/:day/:name', async (req, res, next) => {
   try {
     // redirect old posts from the old blog
     const page = `/post/${req.params.name}`;
-    res.redirect(page);
-  } catch (e) {
-    next(e);
-  }
-});
-
-// backward compatibility to old urls such as
-// https://www.javaniceday.com/2018/06/07/get-visualforce-usage-stats-from-visualforceaccessmetrics/amp/
-router.get('/:year/:month/:day/:name/:amp', async (req, res, next) => {
-  try {
-    // redirect old posts from the old blog
-    const page = `/post/${req.params.name}`;
-    res.redirect(page);
-  } catch (e) {
-    next(e);
-  }
-});
-
-router.get('/category/:tag', async (req, res, next) => {
-  try {
-    // redirect old categories from the old blog
-    const page = `/tag/${req.params.tag}`;
     res.redirect(page);
   } catch (e) {
     next(e);
