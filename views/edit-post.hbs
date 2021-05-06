@@ -3,6 +3,45 @@
 Updated at: {{post.updated_at_friendly_3}}
 </div>
 
+<!-- Cloudinary upload widget -->
+<div class="my-3">
+	<script src="https://upload-widget.cloudinary.com/global/all.js" type="text/javascript">
+	</script>
+
+	<script src="https://upload-widget.cloudinary.com/global/all.js" type="text/javascript"></script>
+
+	<script type="text/javascript">
+		// TODO get the cloud name and the preset from confgis
+
+		const cloudinaryContentImageWidget = cloudinary.createUploadWidget({
+					cloudName: 'hqkn1dfka',
+					uploadPreset: 'dwlwnihh'}, (error, result) => {
+					if (!error && result && result.event === "success") {
+						console.log('Done! Here is the image info: ', result.info);
+						const fileName = result.info.public_id+'.jpg';
+						console.log('file name '+fileName);
+						const currentContent = $('#content').val();
+						// TODO get base image from configs
+						const url = `<img class="lozad img-fluid rounded" data-src="https://res.cloudinary.com/hqkn1dfka/image/upload/c_thumb,f_auto,q_60,w_900,h_600,q_auto:low/v1620094956/${fileName}" />`;
+						$('#content').val(currentContent+'\n'+url);
+					}
+				}
+		)
+
+		const myWidget = cloudinary.createUploadWidget({
+					cloudName: 'hqkn1dfka',
+					uploadPreset: 'dwlwnihh'}, (error, result) => {
+					if (!error && result && result.event === "success") {
+						console.log('Done! Here is the image info: ', result.info);
+						const fileName = result.info.public_id+'.jpg';
+						console.log('file name '+fileName);
+						$('#featured_image_name').val(fileName)
+					}
+				}
+		)
+
+	</script>
+</div>
 
 <form class="mb-3" action="{{action}}" method="POST">
   <input type="hidden" name="_csrf" value="{{csrfToken}}">
@@ -12,6 +51,8 @@ Updated at: {{post.updated_at_friendly_3}}
   <div class="form-group">
     <textarea class="form-control" id="content" name="content" rows="20"
     placeholder="Content", spellcheck="true">{{post.content}}</textarea>
+	  <button id="upload_widget" type="button" class="btn btn-secondary mt-1"
+	          onclick="cloudinaryContentImageWidget.open();">Subir imagen</button>
   </div>
    <div class="form-group">
     <label class="form-check-label" for="summary">Summary</label>
@@ -23,11 +64,25 @@ Updated at: {{post.updated_at_friendly_3}}
     <input type="text" class="form-control" id="tags" name="tags"
     value="{{post.tags}}" placeholder="tag1 tag2, tag3">
   </div>
-   <div class="form-group">
-    <label class="form-check-label" for="featured_image_name">Image name</label>
-    <input type="text" class="form-control" id="featured_image_name" name="featured_image_name"
-    value="{{post.featured_image_name}}" placeholder="image-post.jpg">
-  </div>
+
+	<div class="form-row">
+
+		<div class="form-group col-md-2">
+			<label class="form-check-label" for="featured_image_name">Imagen destacada</label>
+		</div>
+	   <div class="form-group col-md-4">
+
+	    <input type="text" class="form-control" id="featured_image_name" name="featured_image_name"
+	    value="{{post.featured_image_name}}" placeholder="image-post.jpg">
+
+	  </div>
+
+		<div class="form-group col-md-6">
+			<button id="upload_widget" type="button" class="btn btn-secondary"
+			        onclick="myWidget.open();">Subir imagen destacada</button>
+		</div>
+	</div>
+
   <div class="form-group form-check">
     <input type="checkbox" class="form-check-input" id="active" name="active" {{#if post.active}}checked{{/if}}>
     <label class="form-check-label" for="active">Active</label>

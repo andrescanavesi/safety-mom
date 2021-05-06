@@ -61,12 +61,13 @@ app.use(express.static(path.join(__dirname, 'public')));
 app.use('/', indexRouter);
 
 // all requests to this route will require user and password
-// app.use('/admin', basicAuth(authOptions), adminRouter);
-// app.use('/sitemap.xml', sitemapRouter);
+app.use('/admin', basicAuth(authOptions), adminRouter);
+app.use('/sitemap.xml', sitemapRouter);
 
 // error handler
 app.use((err, req, res) => {
   logger.error(err);
+  logger.error(err.message);
   res.locals.message = 'oops!';
   res.locals.error = {};
   // set locals, only providing error in development

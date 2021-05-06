@@ -3,42 +3,42 @@
 <h1 class="my-4">{{pageHeader}}</h1> <!-- used to display categories such as tags -->
 {{#each posts}}
 	<!-- Blog Post -->
-	<div class="card border-0 mb-3">
-		<div class="text-muted">
-			Publicado hace 3 dias
-		</div>
-		<h1>
-			<a href="/post/{{this.title_seo}}">{{this.title}}</a>
-		</h1>
-		<h3>
-			<small class="text-muted lead">Los niños pueden hacer uso de estas sillas como edad recomendada entre 1 y 12 años de edad</small>
-		</h3>
-		<img class="lozad card-img-top mt-3"
-		     src="{{this.default_loading_image}}"
-		     data-src="{{this.featured_image_url}}" alt="image post">
-		<p class="text-center"><small class="text-muted">Image by Unsplash</small> </p>
-		<div class="card-body">
-
-			<p class="lead text-justify">{{this.content}}</p>
-			<a href="/post/{{this.title_seo}}" >
-				Seguir leyendo - 3 min de lectura
-			</a>
-
-			<!-- post metadata-->
-			<div class="d-flex mt-2">
-				<div class="p-2">
-					<a href="#"><i data-feather="heart"></i></a>
-				</div>
-				<div class="ml-auto p-2">
-					<a href="#"><i data-feather="twitter"></i></a>
-					<a href="#"><i data-feather="facebook"></i></a>
-					<a href="#"><i data-feather="linkedin"></i></a>
-				</div>
+	<div class="container">
+		<div class="row">
+			<div class="col align-middle">
+				<img class="lozad card-img-top mt-3"
+				     src="{{this.default_loading_image}}"
+				     data-src="{{this.featured_image_url}}" alt="image post">
+			</div>
+			<div class="col-8">
+				<h1>
+					<a href="/post/{{this.title_seo}}">{{this.title}}</a>
+				</h1>
+				<h4 class="d-none d-md-block">
+					<small class="text-muted lead hidden-lg-up">Los niños pueden hacer uso de estas sillas como edad recomendada entre 1 y 12 años de edad</small>
+				</h4>
 			</div>
 
 		</div>
+		<div class="row">
+			<div class="col">
+				<p class="lead text-justify mt-3">{{this.summary}}</p>
+				<a href="/post/{{this.title_seo}}" ><span class="text-success">Seguir leyendo - 3 min de lectura</span></a>
+				<!-- post metadata -->
+				<div class="d-flex mt-1">
+					<div class="p-2">
+						<a href="#"><i data-feather="heart"></i></a>
+					</div>
+					<div class="ml-auto p-2">
+						<a href="#"><i data-feather="twitter"></i></a>
+						<a href="#"><i data-feather="facebook"></i></a>
+						<a href="#"><i data-feather="linkedin"></i></a>
+					</div>
+				</div>
 
-		<hr/>
+			</div>
+		</div>
 	</div>
+	<hr/>
 {{/each}}
 

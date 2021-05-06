@@ -49,15 +49,15 @@ router.get('/create-post', csrfProtection, async (req, res, next) => {
     const responseJson = responseHelper.getResponseJson(req);
     responseJson.csrfToken = req.csrfToken();
 
-    const defaultContent = '';
+    const defaultContent = 'Default content Instalar una silla de niño en el auto de forma sencilla';
 
     responseJson.post = {
-      title: '',
+      title: 'Instalar una silla de niño en el auto de forma sencilla',
       title_seo: '',
       content: defaultContent,
-      summary: '',
-      featured_image_name: 'christopher-gower-m_HRfLhgABo-unsplash.jpg',
-      tags: 'dev',
+      summary: 'summary - Instalar una silla de niño en el auto de forma sencilla',
+      featured_image_name: 'car-chair-test.jpg',
+      tags: 'safety',
       active: false,
     };
     responseJson.action = '/admin/create-post';
