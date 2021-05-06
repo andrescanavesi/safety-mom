@@ -1,12 +1,9 @@
 const moment = require('moment');
 
-/**
- * JND stands for javaniceday
- */
 module.exports.getResponseJson = function (req) {
   // default attributes for the response response.
   const responseJson = {};
-  responseJson.title = 'safety-mom.com – Blog sobre....'; // TODO
+  responseJson.title = 'safety-mom.com – Blog seguridad vial en niños';
   responseJson.today = moment().format('YYYY-MM-DD');
   responseJson.isProduction = process.env.NODE_ENV === 'production' || false;
   responseJson.adsenseEnabled = process.env.ADSENSE_ENABLED === true || process.env.ADSENSE_ENABLED === 'true';
@@ -15,9 +12,9 @@ module.exports.getResponseJson = function (req) {
   responseJson.createdAt = moment().format('YYYY-MM-DD');
   responseJson.updatedAt = moment().format('YYYY-MM-DD');
   responseJson.linkToThisPage = process.env.BASE_URL || 'http://localhost:3000';
-  responseJson.description = 'safety-mom.com – Blog sobre.....'; // TODO
+  responseJson.description = 'safety-mom.com – Blog seguridad vial en niños';
   responseJson.metaImage = process.env.DEFAULT_IMAGE_URL;
-  responseJson.keywords = 'software, development';
+  responseJson.keywords = 'blog,seguridad,vial,niños';
   responseJson.searchText = '';
   responseJson.showRelatedPosts = true;
 
@@ -29,16 +26,16 @@ module.exports.getResponseJson = function (req) {
 
   // structured data
   responseJson.pageType = 'Blog';
-  responseJson.pageName = 'javaniceday.com';
-  responseJson.pageOrganization = 'javaniceday.com';
+  responseJson.pageName = 'safety-mom.com';
+  responseJson.pageOrganization = 'safety-mom.com';
   responseJson.pageImage = process.env.DEFAULT_IMAGE_URL;
   responseJson.pageUrl = process.env.BASE_URL;
-  responseJson.pageDatePublished = '2020-06-02';
+  responseJson.pageDatePublished = '2021-05-09';
   responseJson.pageDateModified = moment().format('YYYY-MM-DD');// today
   responseJson.pageLogo = 'http://...'; // TODO
   responseJson.pageDescription = responseJson.description;
 
-  responseJson.siteName = 'javaniceday.com';
+  responseJson.siteName = 'safety-mom.com';
   responseJson.author = 'Andres Canavesi';
   responseJson.publisher = 'Andres Canavesi';
 
@@ -52,6 +49,9 @@ module.exports.getResponseJson = function (req) {
   responseJson.isAuthenticated = req.headers.authorization && req.headers.authorization.startsWith('Basic ');
 
   responseJson.defaultLoadingImage = process.env.DEFAULT_LOADING_IMAGE;
+
+  responseJson.cloudinaryCloudName = process.env.CLOUDINARY_CLOUD_NAME;
+  responseJson.cloudinaryUnsignedUploadPreset = process.env.CLOUDINARY_UNSIGNED_UPLOADS_PRESET;
 
   return responseJson;
 };

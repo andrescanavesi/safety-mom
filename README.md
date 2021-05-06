@@ -20,8 +20,9 @@ git push heroku-staging main
 Set env vars
 ```bash
 heroku config:set -a safety-mom-staging NODE_ENV=staging 
+heroku config:get -a safety-mom-staging NODE_ENV
 ```
 
 Set all env vars from .env file (WARNING: it will override all!)
-`heroku config:set $(cat .env | sed '/^$/d; /#[[:print:]]*$/d')`
+`heroku config:set -a safety-mom-staging $(cat .env | sed '/^$/d; /#[[:print:]]*$/d')`
 

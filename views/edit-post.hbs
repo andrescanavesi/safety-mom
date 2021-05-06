@@ -14,8 +14,8 @@ Updated at: {{post.updated_at_friendly_3}}
 		// TODO get the cloud name and the preset from confgis
 
 		const cloudinaryContentImageWidget = cloudinary.createUploadWidget({
-					cloudName: 'hqkn1dfka',
-					uploadPreset: 'dwlwnihh'}, (error, result) => {
+					cloudName: "{{cloudinaryCloudName}}",
+					uploadPreset: "{{cloudinaryUnsignedUploadPreset}}"}, (error, result) => {
 					if (!error && result && result.event === "success") {
 						console.log('Done! Here is the image info: ', result.info);
 						const fileName = result.info.public_id+'.jpg';
