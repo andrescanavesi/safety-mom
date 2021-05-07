@@ -53,6 +53,7 @@ router.get('/create-post', csrfProtection, async (req, res, next) => {
 
     responseJson.post = {
       title: 'Instalar una silla de niño en el auto de forma sencilla',
+      sub_title: 'Sub title test',
       title_seo: '',
       content: defaultContent,
       summary: 'summary - Instalar una silla de niño en el auto de forma sencilla',
@@ -72,6 +73,7 @@ router.post('/create-post', parseForm, csrfProtection, async (req, res, next) =>
   try {
     const post = {
       title: req.body.title,
+      sub_title: req.body.sub_title,
       content: req.body.content,
       summary: req.body.summary,
       featured_image_name: req.body.featured_image_name,
@@ -113,6 +115,7 @@ router.post('/edit/:id', parseForm, csrfProtection, async (req, res, next) => {
     responseJson.csrfToken = req.csrfToken();
     let post = await daoPosts.findById(req.params.id, true, false);
     post.title = req.body.title;
+    post.sub_title = req.body.sub_title;
     post.content = req.body.content;
     post.summary = req.body.summary;
     post.tags = req.body.tags;

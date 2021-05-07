@@ -24,7 +24,7 @@ function convertPost(row) {
     id: row.id,
     title: row.title,
     title_seo: row.title_seo,
-    sub_title: 'Los niños pueden hacer uso de estas sillas como edad recomendada entre 1 y 12 años de edad.',
+    sub_title: row.sub_title,
     created_at: row.created_at,
     created_at_friendly: moment(row.created_at).format('MMM DD, YYYY'),
     created_at_friendly_2: moment(row.created_at).format('YYYY-MM-DD'),
@@ -77,8 +77,9 @@ module.exports.insert = async function (post) {
     summary, 
     active, 
     featured_image_name, 
-    tags) 
-  VALUES($1,$2,$3,$4,$5,$6,$7,$8,$9) RETURNING id`;
+    tags,
+    sub_title) 
+  VALUES($1,$2,$3,$4,$5,$6,$7,$8,$9,$10) RETURNING id`;
   const bindings = [
     today,
     today,
@@ -89,6 +90,7 @@ module.exports.insert = async function (post) {
     post.active,
     post.featured_image_name,
     post.tags,
+    post.sub_title,
   ];
 
   const result = await dbHelper.query(query, bindings, false);
@@ -103,8 +105,8 @@ module.exports.update = async function (post) {
   const today = moment().format('YYYY-MM-DD HH:mm:ss');
   const query = `UPDATE posts 
     SET title=$1, title_seo=$2, content=$3, active=$4, updated_at=$5,
-    summary=$6, featured_image_name=$7, tags=$8
-    WHERE id=$9`;
+    summary=$6, featured_image_name=$7, tags=$8, sub_title=$9
+    WHERE id=$10`;
   const titleSeo = utils.dashString(post.title);
   const bindings = [
     post.title,
@@ -115,6 +117,7 @@ module.exports.update = async function (post) {
     post.summary,
     post.featured_image_name,
     post.tags,
+    post.sub_title,
     post.id,
   ];
 
