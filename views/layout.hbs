@@ -153,12 +153,12 @@
 	</div>
 	<div class="container">
 		<div class="text-center mt-3 text-muted">
-			<a href="/all/posts" class="text-decoration-none "><span class="text-muted">posts</span></a>
-			|
-			<a href="/all/tags" class="text-decoration-none "><span class="text-muted">tags</span></a>
-			|
-			<a href="/all/search" class="text-decoration-none "><span class="text-muted">search terms</span></a>
-			|
+			<a href="/all/posts" class="text-decoration-none d-none"><span class="text-muted">posts</span></a>
+			<span class="d-none">|</span>
+			<a href="/all/tags" class="text-decoration-none d-none"><span class="text-muted">tags</span></a>
+			<span class="d-none">|</span>
+			<a href="/all/search" class="text-decoration-none d-none"><span class="text-muted">search terms</span></a>
+			<span class="d-none">|</span>
 			<a href="/sitemap.xml" class="text-decoration-none "><span class="text-muted">sitemap</span></a>
 		</div>
 
@@ -171,11 +171,9 @@
 <!-- lazy loading images -->
 <script type="text/javascript" src="https://cdn.jsdelivr.net/npm/lozad/dist/lozad.min.js"></script>
 
-<script src="https://unpkg.com/feather-icons"></script>
 <script type="text/javascript">
 	document.addEventListener("DOMContentLoaded", function(event) {
 
-		feather.replace();
 
 		// to load images in a lazy way
 		// lazy loads elements with default selector as '.lozad'

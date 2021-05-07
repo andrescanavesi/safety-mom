@@ -92,6 +92,7 @@ router.get('/tag/:tag', async (req, res, next) => {
     responseJson.title = `${req.params.tag} - safety-mom.com.com`;
     responseJson.description = responseJson.title;
     responseJson.pageHeader = req.params.tag;
+    responseJson.showRelatedPosts = false;
     res.render('index', responseJson);
   } catch (e) {
     next(e);
