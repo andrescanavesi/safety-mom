@@ -205,4 +205,15 @@ router.get('/all/:kind', async (req, res, next) => {
   }
 });
 
+router.get('/robots.txt', async (req, res, next) => {
+  try {
+    const content = `User-agent: *\nAllow: /\nSitemap: ${process.env.BASE_URL}/sitemap.xml`;
+    res.set('Content-Type', 'text/plain');
+    res.status(200);
+    res.send(content);
+  } catch (e) {
+    next(e);
+  }
+});
+
 module.exports = router;

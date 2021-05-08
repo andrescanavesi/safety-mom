@@ -9,6 +9,7 @@ const compression = require('compression');
 const path = require('path');
 const cookieParser = require('cookie-parser');
 const log4js = require('log4js');
+const utils = require('./utils/utils');
 
 const indexRouter = require('./routes/index');
 const adminRouter = require('./routes/admin');
@@ -44,6 +45,19 @@ function shouldCompress(req, res) {
 }
 
 const app = express();
+
+// redirect any page form http to https
+// redirect also from non-www to www
+app.use((req, res, next) => {
+  if (process.env.NODE_ENV !== 'development' && process.env.NODE_ENV !== 'test' && !utils.isSecure(req)) {
+    const host = req.headers.host.startsWith('www.') ? req.headers.host : `www.${req.headers.host}`;
+    const url = `https://${host}${req.url}`;
+    res.redirect(301, url);
+  } else {
+    next();
+  }
+});
+
 app.use(compression({ filter: shouldCompress }));
 app.use(useragent.express());
 
