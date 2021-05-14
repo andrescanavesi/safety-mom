@@ -22,3 +22,8 @@ h1{
 .socialShareIcon{
   width: 32px;;
 }
+
+.container{
+  padding-left: 5px;
+  padding-right: 5px;
+}
