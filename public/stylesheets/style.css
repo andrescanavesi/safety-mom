@@ -1,7 +1,7 @@
 body {
   padding: 0px;
   font-family: charter, Georgia, Cambria, "Times New Roman", Times, serif;
-  line-height: 32px;
+  line-height: 2rem;
 }
 a:hover{
   text-decoration: none !important;

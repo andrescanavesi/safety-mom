@@ -49,16 +49,42 @@ router.get('/create-post', csrfProtection, async (req, res, next) => {
     const responseJson = responseHelper.getResponseJson(req);
     responseJson.csrfToken = req.csrfToken();
 
-    const defaultContent = 'Default content Instalar una silla de niño en el auto de forma sencilla';
+    const defaultContent = `
+    <!-- Template -->
+    
+    <div class="alert alert-danger" role="alert">
+      Test alert
+    </div>
+    
+    <div class="alert alert-primary" role="alert">
+      Test info
+    </div>
+
+    <div class="alert alert-warning" role="alert">
+      Test info
+    </div>
+    
+    <ul class="list-unstyled">
+      <li> aaa</li>
+      <li> bbb </li>
+      <li> ccc</li>
+      <li> ddd</li>
+    </ul>
+    
+    <blockquote class="blockquote">
+      <p> A blockquote </p>
+    </blockquote>
+    
+    `;
 
     responseJson.post = {
-      title: 'Instalar una silla de niño en el auto de forma sencilla',
-      sub_title: 'Sub title test',
+      title: '',
+      sub_title: '',
       title_seo: '',
       content: defaultContent,
-      summary: 'summary - Instalar una silla de niño en el auto de forma sencilla',
-      featured_image_name: 'car-chair-test.jpg',
-      tags: 'safety',
+      summary: '',
+      featured_image_name: '',
+      tags: 'seguridad',
       active: false,
     };
     responseJson.action = '/admin/create-post';

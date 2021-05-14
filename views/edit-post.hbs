@@ -3,7 +3,7 @@
 Updated at: {{post.updated_at_friendly_3}}
 </div>
 
-<!-- Cloudinary upload widget -->
+<!-- Cloudinary upload widgets -->
 <div class="my-3">
 	<script src="https://upload-widget.cloudinary.com/global/all.js" type="text/javascript">
 	</script>
@@ -11,8 +11,6 @@ Updated at: {{post.updated_at_friendly_3}}
 	<script src="https://upload-widget.cloudinary.com/global/all.js" type="text/javascript"></script>
 
 	<script type="text/javascript">
-		// TODO get the cloud name and the preset from confgis
-
 		const cloudinaryContentImageWidget = cloudinary.createUploadWidget({
 					cloudName: "{{cloudinaryCloudName}}",
 					uploadPreset: "{{cloudinaryUnsignedUploadPreset}}"}, (error, result) => {
@@ -21,8 +19,7 @@ Updated at: {{post.updated_at_friendly_3}}
 						const fileName = result.info.public_id+'.jpg';
 						console.log('file name '+fileName);
 						const currentContent = $('#content').val();
-						// TODO get base image from configs
-						const url = `<img class="lozad img-fluid rounded" data-src="{{imagesBaseUrl}}${fileName}" />`;
+						const url = `<img class="lozad rounded mx-auto d-block img-thumbnail" data-src="{{imagesBaseUrl}}${fileName}" />`;
 						$('#content').val(currentContent+'\n'+url);
 					}
 				}
@@ -97,8 +94,28 @@ Updated at: {{post.updated_at_friendly_3}}
 
 <h3 class="my-2">Preview</h3>
 
-<a href="{{post.url}}">{{post.url}}</a>
 
-<img class="img-fluid" src="{{post.featured_image_url}}" alt="Post image" width="30%">
+<div class="container">
+	<div class="row">
+		<div class="col-md-2">
 
-<hr class="my-3" />
+		</div>
+		<div class="col-lg-8">
+			<div>
+				<a href="{{post.url}}" target="_blank">{{post.url}}</a>
+			</div>
+
+			<img class="rounded mx-auto d-block img-thumbnail" src="{{post.featured_image_url}}"
+			     alt="Post image" width="30%">
+
+			<p class="lead text-justify">
+				{{{post.content}}}
+			</p>
+		</div>
+	</div>
+
+</div>
+
+
+
+
