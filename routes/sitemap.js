@@ -11,7 +11,7 @@ const daoPosts = require('../daos/dao_posts');
 router.get('/', async (req, res, next) => {
   try {
     const baseUrl = process.env.BASE_URL;
-    const posts = await daoPosts.findAll();
+    const posts = await daoPosts.findAll(true, true);
     const collection = [];
     let today = moment();
     today = today.format('YYYY-MM-DD');
