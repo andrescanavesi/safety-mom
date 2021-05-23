@@ -50,7 +50,7 @@ router.get('/', async (req, res, next) => {
       url.changefreq = 'weekly';
       url['image:image'] = {
         'image:loc': tags[i].featured_image_url,
-        'image:caption': tags[i].name,
+        'image:caption': tags[i].name.trim(),
       };
 
       collection.push(url);

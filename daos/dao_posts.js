@@ -49,6 +49,9 @@ function convertPost(row) {
     default_thumb_loading_image: process.env.DEFAULT_THUMB_LOADING_IMAGE,
   };
 
+  // clean up leading spaces
+  result.tags_array = result.tags_array.map((item) => item.trim());
+
   // social sharing buttons
   result.pinterestSharingUrl = `https://www.pinterest.com/pin/create/button/?url=${
     result.url
