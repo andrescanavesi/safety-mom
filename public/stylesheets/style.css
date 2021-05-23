@@ -27,3 +27,7 @@ h1{
   padding-left: 5px;
   padding-right: 5px;
 }
+
+.postText{
+  font-size: 1.25rem;
+}

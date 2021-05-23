@@ -64,7 +64,7 @@ router.get('/create-post', csrfProtection, async (req, res, next) => {
       Test info
     </div>
     
-    <ul class="list-unstyled">
+    <ul>
       <li> aaa</li>
       <li> bbb </li>
       <li> ccc</li>
@@ -72,7 +72,8 @@ router.get('/create-post', csrfProtection, async (req, res, next) => {
     </ul>
     
     <blockquote class="blockquote">
-      <p> A blockquote </p>
+        <p class="mb-0">A well-known quote, contained in a blockquote element.</p>
+        <footer class="blockquote-footer">Someone famous in <cite title="Source Title">Source Title</cite></footer>
     </blockquote>
     
     `;
