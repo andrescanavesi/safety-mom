@@ -26,7 +26,7 @@ function convertPost(row) {
     title_seo: row.title_seo,
     sub_title: row.sub_title,
     created_at: row.created_at,
-    created_at_friendly: moment(row.created_at).format('MMM DD, YYYY'),
+    created_at_friendly: moment(row.created_at).format('DD MMM YYYY'),
     created_at_friendly_2: moment(row.created_at).format('YYYY-MM-DD'),
     created_at_friendly_3: moment(row.created_at).format('YYYY-MM-DD HH:mm:ss'),
     created_at_ago: moment(row.created_at).fromNow(),

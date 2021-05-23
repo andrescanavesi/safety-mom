@@ -36,13 +36,13 @@ module.exports.getResponseJson = function (req) {
   responseJson.pageDescription = responseJson.description;
 
   responseJson.siteName = 'safety-mom.com';
-  responseJson.author = 'Andres Canavesi';
-  responseJson.publisher = 'Andres Canavesi';
+  responseJson.author = 'Victoria Armario';
+  responseJson.publisher = 'Victoria Armario';
 
   responseJson.currentYear = moment().format('YYYY');
 
   responseJson.lang = 'es';
-  responseJson.locale = 'es_ES';
+  responseJson.locale = 'es_AR';
 
   responseJson.isPostPage = false;
 
